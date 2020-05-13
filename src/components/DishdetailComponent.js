@@ -7,7 +7,7 @@ function RenderComments(props) {
       <div className="col-12" key={comm.id}>
         <p>{comm.comment}</p>
         <p>
-          author: {comm.author} date: {comm.date}
+         <strong> author:</strong> {comm.author}  <strong>date:</strong> {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comm.date)))}
         </p>
       </div>
     ));
