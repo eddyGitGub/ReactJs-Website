@@ -24,9 +24,9 @@ class Main extends Component {
     this.state = {};
   }
 
-  onDishSelect(dishId) {
-    this.setState({ selectedDish: dishId });
-  }
+  // onDishSelect(dishId) {
+  //   this.setState({ selectedDish: dishId });
+  // }
 
   render() {
     const HomePage = () => {
@@ -81,4 +81,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));;
