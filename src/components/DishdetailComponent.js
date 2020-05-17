@@ -11,39 +11,86 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
-  ModalFooter,
+  Row,
+  Col,
+  Label,
+  FormGroup,
 } from 'reactstrap';
+import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 
 const CommentForm = () => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
+  const required = (val) => val && val.length;
+  const maxLength = (len) => (val) => !val || val.length <= len;
+  const minLength = (len) => (val) => val && val.length >= len;
+  // handleSubmit(values) {
+  //   console.log('Current State is: ' + JSON.stringify(values));
+  //   alert('Current State is: ' + JSON.stringify(values));
+  //   // event.preventDefault();
+  // };
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
+      <Button outline color="secondary" onClick={toggle}>
         Submit Comment
       </Button>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+        <ModalHeader toggle={toggle}>Submit Comment</ModalHeader>
         <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+            <FormGroup>
+              <label>Rating</label>
+              <Control.select model=".rating" className="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </Control.select>
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="author">Your Name</Label>
+              <Control.text
+                model=".author"
+                id="author"
+                name="author"
+                placeholder="Your Name"
+                className="form-control"
+                validators={{
+                  required,
+                  minLength: minLength(3),
+                  maxLength: maxLength(15),
+                }}
+              />
+              <Errors
+                className="text-danger"
+                model=".author"
+                show="touched"
+                messages={{
+                  required: 'Required',
+                  minLength: 'Must be greater than 2 characters',
+                  maxLength: 'Must be 15 characters or less',
+                }}
+              />
+            </FormGroup>
+            <FormGroup>
+              <label>Comment</label>
+              <Control.textarea
+                model=".comment"
+                className="form-control"
+                rows="6"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Button type="submit" color="primary">
+                Submit
+              </Button>
+            </FormGroup>
+          </LocalForm>
         </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle}>
-            Do Something
-          </Button>{' '}
-          <Button color="secondary" onClick={toggle}>
-            Cancel
-          </Button>
-        </ModalFooter>
       </Modal>
     </div>
   );
