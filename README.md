@@ -20,6 +20,18 @@ Rudux - For state management
 
 React Router is used for routing between pages.
 
+## Installation
+To run this project locally:
+
+Copy code
+
+```
+git clone https://github.com/eddyGitGub/ReactJs-Website.git
+cd ReactJs-Website
+npm install
+npm start
+```
+
 ## Stack
 This project uses:
 
@@ -35,10 +47,10 @@ Some key features:
 - Multi-page React site with routing
 - Responsive mobile-friendly design with Bootstrap
 - React hooks for state management
-- Contact form handling with Formik & Yup
-Blog post listings and individual post pages
-Basic components for header, footer, navigation etc.
-Customization
+- Contact form for data entry
+- Basic components for header, footer, navigation etc.
+  
+## Customization
 The project can be easily extended and customized by adding new pages, styling changes, and adding additional features.
 
 Notes
