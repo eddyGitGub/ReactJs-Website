@@ -1,5 +1,51 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## ReactJs-Website
+This is a website built with React.js.
+
+## Overview
+This project was created to demonstrate building a multi-page website with React using React Router.
+
+The website contains the following pages:
+
+Home - A landing page
+
+About - A simple about us page
+
+Contact - A contact form
+
+Shared Components - Other component use in conjunction with the above pages
+
+Rudux - For state management
+
+React Router is used for routing between pages.
+
+## Stack
+This project uses:
+
+React - Frontend framework
+
+React Router - Routing
+
+Bootstrap - Styling
+
+Features
+Some key features:
+
+- Multi-page React site with routing
+- Responsive mobile-friendly design with Bootstrap
+- React hooks for state management
+- Contact form handling with Formik & Yup
+Blog post listings and individual post pages
+Basic components for header, footer, navigation etc.
+Customization
+The project can be easily extended and customized by adding new pages, styling changes, and adding additional features.
+
+Notes
+This is a simple starter React website template to demonstrate a multi-page React site with routing. For a more robust real-world example, additional features like state management with Redux, data fetching from a CMS, authentication, etc could be added.
+
+Let me know if you have any other questions!
+
 ## Available Scripts
 
 In the project directory, you can run:
